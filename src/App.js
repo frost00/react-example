@@ -1,5 +1,7 @@
-import logo from './logo.svg';
+import logo from './sphere-black.png';
 import './App.css';
+import ComponentOne from './welcome'
+
 function App() {
   return (
     <div className="App">
@@ -8,6 +10,7 @@ function App() {
         <p>
           Practice <code> Shayon Maramkhah</code>
         </p>
+        <ComponentOne/>
         <a
           className="App-link"
           href="https://reactjs.org"
