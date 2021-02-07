@@ -11,8 +11,9 @@ const db = mysql.createPool({
   password: "%83#G!xyZ2$4S",
   database: "mydb"
 });
-app.use(cors);
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.post('/api/insert',(req,res)=>{
@@ -22,7 +23,7 @@ const passwordIN = req.body.password;
 
   const sqlInsert = "INSERT INTO login (email,password) VALUES (?,?)";
   db.query(sqlInsert,[emailIN,passwordIN],(err,result)=>{});
-  console.log(err)
+  console.log(result)
 });
 
 app.listen(3001, ()=>{

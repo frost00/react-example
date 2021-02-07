@@ -1,17 +1,17 @@
 import React,{useState,useEffect} from "react";
-import Axios from 'axios';
+import axios from 'axios';
 
 export default function ComponentOne(){
-  const [myemail,setEmail] = useState("");
-  const [mypassword,setPassword] = useState("");
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
 
-  const submitAcc = ()=>{
-  Axios.post('http://localhost:3001/api/insert',{
-    email:myemail,
-    password: mypassword,
-  }).then(function(){
-    console.log("successful Insert");
-  }).catch();
+  const submitAcc = (email ,password)=>{
+  axios.post('http://localhost:3001/api/insert',{
+    email:email,
+    password: password,
+  }).then(()=>
+    console.log("successful Insert"))
+  .catch(console.error);
 };
 
   return (
