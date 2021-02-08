@@ -21,9 +21,10 @@ app.post('/api/insert',(req,res)=>{
 const emailIN = req.body.email;
 const passwordIN = req.body.password;
 
+//result is not defined ?
   const sqlInsert = "INSERT INTO login (email,password) VALUES (?,?)";
-  db.query(sqlInsert,[emailIN,passwordIN],(err,result)=>{});
-  console.log(result)
+  db.query(sqlInsert,[emailIN,passwordIN]);
+
 });
 
 app.listen(3001, ()=>{
