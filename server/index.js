@@ -23,7 +23,9 @@ const passwordIN = req.body.password;
 
 //result is not defined ?
   const sqlInsert = "INSERT INTO login (email,password) VALUES (?,?)";
-  db.query(sqlInsert,[emailIN,passwordIN]);
+  db.query(sqlInsert,[emailIN,passwordIN],(error,result)=>{
+    console.log(result);
+  });
 
 });
 
