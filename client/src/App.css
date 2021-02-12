@@ -1,7 +1,7 @@
-div{
-  display:block;
-  align-content: center;
-  justify-content: center;
+
+#i{
+  float: right;
+  color: red;
 }
 .App {
   text-align: center;
