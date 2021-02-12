@@ -4,11 +4,12 @@ const app = express();
 const mysql = require('mysql');
 const bodyParser =require('body-Parser');
 const cors = require('cors');
+require('dotenv').config();
 
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "%83#G!xyZ2$4S",
+  password: process.env.DB_PASSWORD,
   database: "mydb"
 });
 app.use(cors());
@@ -27,6 +28,17 @@ const passwordIN = req.body.password;
     console.log(result);
   });
 
+});
+
+app.get('api/read',(req,res)=>{
+  const emailIN = req.body.email;
+  //const passwordIN = req.body.password;
+
+//result is not defined ?
+  const sqlRead = "SELECT email, password FROM login WHERE email = "+emailIN+"";
+  db.query(sqlRead,(error,result)=>{
+    console.log(error);
+  });
 });
 
 app.listen(3001, ()=>{
