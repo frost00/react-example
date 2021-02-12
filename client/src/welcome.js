@@ -9,9 +9,9 @@ export default function ComponentOne(){
   const [password,setPassword] = useState("");
 
   useEffect(()=>{
-  var h = document.getElementById('me');
-  h.innerHTML="CHANGE ONCE";
+   
   })
+
 
   const btnsubmit =()=>
   {
@@ -21,7 +21,8 @@ export default function ComponentOne(){
     }).then(()=>
      console.log("successful Insert"))
      .catch(console.error);
-
+      window.location.reload();
+      window.location.pathname="/change"
   }
   return (
    
@@ -30,19 +31,19 @@ export default function ComponentOne(){
         <img src={logo} className="App-logo" alt="logo" />
         <div>
 
-        <form method="GET" action="/change">
+        <form name="form1">
         <p id="me">e</p>
-        <input type="text" onChange={(e)=>{
+        <input id="inOne" type="text" onChange={(e)=>{
           setEmail(e.target.value)
         }} placeholder="email@addr.com" name="email"/>
 
-        <input type="text" onChange={(e)=>{
+        <input id="inTwo" type="text" onChange={(e)=>{
           setPassword(e.target.value)
         }} placeholder="Password" name="password"/>
         <button onClick={btnsubmit} type="button">Submit</button>
 
         </form>
-
+         
         </div>
 
         <a
