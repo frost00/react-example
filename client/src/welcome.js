@@ -37,7 +37,7 @@ export default function ComponentOne(){
           setEmail(e.target.value)
         }} placeholder="email@addr.com" name="email"/>
 
-        <input id="inTwo" type="text" onChange={(e)=>{
+        <input id="inTwo" type="password" onChange={(e)=>{
           setPassword(e.target.value)
         }} placeholder="Password" name="password"/>
         <button onClick={btnsubmit} type="button">Submit</button>
