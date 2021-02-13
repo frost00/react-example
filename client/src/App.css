@@ -1,9 +1,4 @@
 
-#i{
-  display: block;
-  margin-left: 400px;
-  color: red;
-}
 #map{
   height: 75%;
   width: 50%;
@@ -16,6 +11,11 @@
   margin-right: 350px;
   position: absolute;
   float: left;
+}
+#btn
+{
+  display: block;
+  margin-left: 115px;
 }
 .App {
   text-align: center;
