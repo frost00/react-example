@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import ComponentOne from './welcome'
 import ComponentTwo from './reserve'
 import {BrowserRouter as Router,

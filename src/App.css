@@ -1,21 +1,9 @@
 
-#map{
-  height: 75%;
-  width: 50%;
-  margin-left: 350px;
-  position: absolute;
-  float: right;
-}
-#mapForm
-{
-  margin-right: 350px;
-  position: absolute;
-  float: left;
-}
-#btn
+input
 {
   display: block;
-  margin-left: 115px;
+  position: relative;
+  margin:auto;
 }
 .App {
   text-align: center;

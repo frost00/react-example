@@ -1,0 +1,25 @@
+#i{
+    float: left;
+    position: relative;
+    margin-right: 12%;
+    margin-top: 11%;
+    display: block;
+  }
+  #map{
+    height: 55%;
+    width: 100%;
+    position: absolute;
+    float: right;
+  }
+
+  #btn
+  {
+    display: block;
+    margin-left: 11px;
+  }
+  #mp
+  {
+      float: right;
+      margin-left: 16%;
+  }
+  
