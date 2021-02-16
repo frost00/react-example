@@ -7,6 +7,7 @@ export default function ComponentTwo(){
 const[Street,setStreet]=useState("");
 const[City,setCity]=useState("");
 const[State,setState]=useState("");
+var [para,setPara]=useState("");
 
 //Using states and effects will perform some action upon refresh and actions or events
 
@@ -31,12 +32,14 @@ const btnsubmit =() =>{
            <input onChange={(e)=>{
            setState(e.target.value)
          }}type="text" placeholder="State"></input>
-        <textarea></textarea>
+        <textarea onChange={(e)=>{
+          setPara(e.target.value)
+        }}></textarea>
         <button id="btn" onClick={btnsubmit} type="button">Submit</button>
 
        </form>
        <div id ="mp">
-       <ComponentMap id="cmpMap"/>
+       <ComponentMap id="cmpMap" />
        </div>
     </div>
   );

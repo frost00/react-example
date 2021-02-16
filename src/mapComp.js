@@ -22,7 +22,7 @@ useEffect(()=>{
 //Google API 
 const google = window.google = window.google? window.google:{};
 const loader = new Loader({
-  apiKey: "AIzaSyA7Ju_Hw6XwlZk9G3GEtwYBerY2wpO9pG8",
+  apiKey: process.env.API_KEY_G,
   version: "weekly",
   libraries: ["places"]
 });
@@ -43,16 +43,17 @@ const mapOptions ={
   if(err) throw err
 });
 
+ var map;
 loader.load().then(()=>{
-    const map = new google.maps.Map(document.getElementById("map"),mapOptions);
-  const marker =  new google.maps.Marker(
+     map = new google.maps.Map(document.getElementById("map"),mapOptions);
+    const marker =  new google.maps.Marker(
       {
         position:{lat:lat,lng:lng},
         map:map,
         title: "NEW MARKER"
       });
       const infowindow = new google.maps.InfoWindow({
-        content: "STUGGG"
+        content: "example",
       });
 
       marker.addListener("click",()=>{
@@ -83,6 +84,9 @@ loader.load().then(()=>{
 
       
     });
+
+    //END OfLOADER
+   
     
   return (
     <div>
