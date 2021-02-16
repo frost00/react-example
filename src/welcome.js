@@ -51,7 +51,6 @@ export default function ComponentOne(){
           setPassword(e.target.value)
         }} placeholder="Password" name="password"/>
         <button onClick={btnsubmit} type="button">Submit</button>
-
         </form>
          
         </div>

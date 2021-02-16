@@ -21,7 +21,7 @@ const btnsubmit =() =>{
     <div>
         <p id="i">I</p>
       <div id="map"></div>
-       <form >
+       <form id="form2">
          <input onChange={(e)=>{
            setStreet(e.target.value)
          }} type="text" placeholder="Street"></input>
@@ -31,7 +31,9 @@ const btnsubmit =() =>{
            <input onChange={(e)=>{
            setState(e.target.value)
          }}type="text" placeholder="State"></input>
+        <textarea></textarea>
         <button id="btn" onClick={btnsubmit} type="button">Submit</button>
+
        </form>
        <div id ="mp">
        <ComponentMap id="cmpMap"/>

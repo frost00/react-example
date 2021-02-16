@@ -45,12 +45,20 @@ const mapOptions ={
 
 loader.load().then(()=>{
     const map = new google.maps.Map(document.getElementById("map"),mapOptions);
-    new google.maps.Marker(
+  const marker =  new google.maps.Marker(
       {
         position:{lat:lat,lng:lng},
         map:map,
         title: "NEW MARKER"
       });
+      const infowindow = new google.maps.InfoWindow({
+        content: "STUGGG"
+      });
+
+      marker.addListener("click",()=>{
+        infowindow.open(map,marker)
+      })
+
 
       poly = new google.maps.Polyline({
             strokeColor: "#000000",
@@ -72,6 +80,8 @@ loader.load().then(()=>{
               map:map,
           });
       }
+
+      
     });
     
   return (
