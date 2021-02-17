@@ -1,6 +1,7 @@
 //import './App.css';
 import ComponentOne from './welcome'
 import ComponentTwo from './reserve'
+import ComponentThree from './rapid'
 import {BrowserRouter as Router,
 Switch,
 Route,
@@ -18,10 +19,14 @@ function App() {
       <li>
         <Link to="/change">ABOUT</Link>
       </li>
+      <li>
+        <Link to="/changeit">Rapid</Link>
+      </li>
     </div>
        <Switch>
         <Route path="/" exact component={ComponentOne}/>   
        <Route path="/change" component={ComponentTwo}/>
+       <Route path="/changeit" component={ComponentThree}/>
        </Switch>
      </Router>
     

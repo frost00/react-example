@@ -17,7 +17,7 @@ useEffect(()=>{
 
 //API option with hardcoded API. TRY to hide API key with 
 //.env OR place these option on the server side and make an axios request to the server
-let map,l,ll,ctn;
+let map,l,ll,ctn,poly;
 
 geolocation.getCurrentPosition(function(err,position){
   if(err) throw err
@@ -43,7 +43,7 @@ const mapOptions ={
 
  //geolocation get's current location
  
- function shootMAP(){
+ function loadMap(){
       loader.load().then(()=>{
             map = new google.maps.Map(document.getElementById("map"),mapOptions);
 
@@ -58,13 +58,52 @@ const mapOptions ={
             marker.addListener("click",()=>{
               infowindow.open(map,marker);
             });
+          
     });
   }
+  function trafficMap(){
+    loader.load().then(()=>{
+          map = new google.maps.Map(document.getElementById("map"),mapOptions);
+          const trafficLayer =new google.maps.TrafficLayer();
+          trafficLayer.setMap(map);
+          //PLOY
+          poly = new google.maps.Polyline({
+            strokeColor: "#000000",
+            strokeOpacity:1.0,
+            strokeWeight:3,
+          });
+      
+          poly.setMap(map);
+          map.addListener("click",addLatLng);
+  });
+}
+function addLatLng(event){
+  const path = poly.getPath();
+  path.push(event.latLng);
+  new google.maps.Marker({
+    position: event.latLng,
+    title: "#"+path.getLength(),
+    map:map,
+  });
+}
 
+function bikeMap(){
+  loader.load().then(()=>{
+    map = new google.maps.Map(document.getElementById("map"),mapOptions);
+    const bikeLayer = new google.maps.BicyclingLayer();
+    bikeLayer.setMap(map);
+
+  });
+}
+  const btnTraffic =() =>{
+    trafficMap();
+  }
+  const btnBike =()=>{
+    bikeMap();
+  }
   const btnsubmit =() =>{
-    console.log("FIRE");
-    shootMAP();
-    ctn = document.getElementById("trg").innerText
+    loadMap();
+    ctn = document.getElementById("trg").innerHTML;
   }
   
 
@@ -83,7 +122,10 @@ const mapOptions ={
            setState(e.target.value)
          }}type="text" placeholder="State"></input>
         <textarea id="trg"></textarea>
-        <button id="btn" onClick={btnsubmit} type="button">Submit</button>
+        <button id="btn" onClick={btnsubmit} type="button">Map</button>
+        <button id="btn" onClick={btnTraffic} type="button">Traffic</button>
+        <button id="btn" onClick={btnBike} type="button">BikeMap</button>
+
        </form>
     </div>
   );

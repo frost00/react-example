@@ -24,7 +24,7 @@ export default function ComponentOne(){
 
   const btnsubmit =()=>
   {
-    readdb();
+    
     axios.post('http://localhost:3001/api/insert',{
       email:email,
       password: password
@@ -33,6 +33,7 @@ export default function ComponentOne(){
      .catch(console.error);
       window.location.reload();
       window.location.pathname="/change"
+
   }
   return (
    

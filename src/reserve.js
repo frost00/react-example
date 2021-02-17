@@ -7,7 +7,6 @@ export default function ComponentTwo(){
   return (
    
     <div>
-        <p id="i">I</p>
       <div id="map"></div>
        <div id ="mp">
        <ComponentMap id="cmpMap" />
