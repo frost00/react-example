@@ -12,16 +12,6 @@ export default function ComponentOne(){
    
   })
 
-  const readdb = () =>
-  {
-    axios.request("http://localhost:3001/api/read").then(function (response) {
-      const obj = response.data;
-      console.log(obj);
-    }).catch(function (error) {
-      console.error(error);
-    });
-  }
-
   const btnsubmit =()=>
   {
     
