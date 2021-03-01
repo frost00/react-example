@@ -12,9 +12,33 @@ export default function ComponentOne(){
    
   })
 
+  //async functions
+  function resolveAfter2Seconds()
+  {
+    return new Promise(resolve =>{
+      setTimeout(()=>{
+        resolve('Resolved');
+      },2000);
+    });
+  }
+
+  async function asyncCall(){
+    console.log('calling');
+    const result = await resolveAfter2Seconds();
+    axios.request("http://localhost:3001/api/read").then(function (response) {
+      alert(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+    console.log(result);
+  }
+//async
+
   const btnsubmit =()=>
   {
-    
+    //check if user exists
+    asyncCall();
+    //if not exist post to db
     axios.post('http://localhost:3001/api/insert',{
       email:email,
       password: password
@@ -23,7 +47,7 @@ export default function ComponentOne(){
      .catch(console.error);
       window.location.reload();
       window.location.pathname="/change"
-
+    
   }
   return (
    

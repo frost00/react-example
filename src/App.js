@@ -2,6 +2,7 @@
 import ComponentOne from './welcome'
 import ComponentTwo from './reserve'
 import ComponentThree from './rapid'
+import ComponentFour from './crawler'
 import {BrowserRouter as Router,
 Switch,
 Route,
@@ -17,16 +18,20 @@ function App() {
         <Link to="/">HOME</Link>
       </li>
       <li>
-        <Link to="/change">ABOUT</Link>
+        <Link to="/change">Maps</Link>
       </li>
       <li>
-        <Link to="/changeit">Rapid</Link>
+        <Link to="/changeit">server Communication</Link>
+      </li>
+      <li>
+        <Link to="/changeitagain">Web Crawler</Link>
       </li>
     </div>
        <Switch>
         <Route path="/" exact component={ComponentOne}/>   
        <Route path="/change" component={ComponentTwo}/>
        <Route path="/changeit" component={ComponentThree}/>
+       <Route path="/changeitagain" component={ComponentFour}/>
        </Switch>
      </Router>
     
