@@ -26,7 +26,7 @@ export default function ComponentOne(){
     console.log('calling');
     const result = await resolveAfter2Seconds();
     axios.request("http://localhost:3001/api/read").then(function (response) {
-      alert(response.data);
+      alert(response[0]+" "+response[1]);
     }).catch(function (error) {
       console.error(error);
     });
@@ -37,7 +37,6 @@ export default function ComponentOne(){
   const btnsubmit =()=>
   {
     //check if user exists
-    asyncCall();
     //if not exist post to db
     axios.post('http://localhost:3001/api/insert',{
       email:email,
@@ -45,8 +44,8 @@ export default function ComponentOne(){
     }).then(()=>
      console.log("successful Insert"))
      .catch(console.error);
-      window.location.reload();
-      window.location.pathname="/change"
+      //window.location.reload();
+      //window.location.pathname="/change"
     
   }
   return (
@@ -82,3 +81,6 @@ export default function ComponentOne(){
     </div>
   );
 }
+
+
+/**/

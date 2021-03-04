@@ -8,6 +8,7 @@ export default function ComponentMap(){
 const[Street,setStreet]=useState("");
 const[City,setCity]=useState("");
 const[State,setState]=useState("");
+const[Paragraph,setParagraph]=useState("");
 
 //Using states and effects will perform some action upon refresh and actions or events
 useEffect(()=>{
@@ -21,7 +22,7 @@ let map,l,ll,ctn,poly;
 
 geolocation.getCurrentPosition(function(err,position){
   if(err) throw err
-alert("Lat: "+position.coords.latitude+" \nLng: "+position.coords.longitude);
+//alert("Lat: "+position.coords.latitude+" \nLng: "+position.coords.longitude);
 l = position.coords.latitude;
 ll=position.coords.longitude;
 })
@@ -90,9 +91,17 @@ function addLatLng(event){
 function bikeMap(){
   loader.load().then(()=>{
     map = new google.maps.Map(document.getElementById("map"),mapOptions);
-    const bikeLayer = new google.maps.BicyclingLayer();
-    bikeLayer.setMap(map);
-
+    const infowindow = new google.maps.InfoWindow({
+      content: "Testing",
+    });
+    const marker = new google.maps.Marker({
+      position:{lat:l,lng:ll},
+      map,
+      title:"TESTING"
+    });
+    marker.addListener("click",()=>{
+      infowindow.open(map,marker);
+    });
   });
 }
   const btnTraffic =() =>{
@@ -121,7 +130,9 @@ function bikeMap(){
            <input onChange={(e)=>{
            setState(e.target.value)
          }}type="text" placeholder="State"></input>
-        <textarea id="trg"></textarea>
+        <textarea id="trg" onChange={(e)=>{
+          setParagraph(e.target.value)
+        }}></textarea>
         <button id="btn" onClick={btnsubmit} type="button">Map</button>
         <button id="btn" onClick={btnTraffic} type="button">Traffic</button>
         <button id="btn" onClick={btnBike} type="button">BikeMap</button>
